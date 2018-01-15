@@ -3,23 +3,44 @@
 	<div class="alert alert-success" role="alert" ng-if="notification.success">{{ notification.message }}</div>
 	<div class="alert alert-error" role="alert" ng-if="notification.error">{{ notification.message }}</div>
 
-	<button class="btn btn-primary" ng-click="frmToggle()">Add Project</button>
+	<button class="btn btn-primary" ng-click="frmToggle()">Aggiungi Risorsa</button>
 	<br>
 
 	<form class="form-horizontal" id="blogForm" ng-submit="pushData(frm)" hidden>
 		<div class="form-group">
-			<label for="title" class="col-sm-2 control-label">Title</label>
+			<label for="surname" class="col-sm-2 control-label">Cognome</label>
 			<div class="col-sm-10">
-				<input type="text" ng-model="frm.title" class="form-control">
+				<input type="text" ng-model="frm.surname" class="form-control">
 			</div>
 		</div>
-		<div class="form-group">
-			<label for="description" class="col-sm-2 control-label">Description</label>
+    <div class="form-group">
+      <label for="name" class="col-sm-2 control-label">Nome</label>
+      <div class="col-sm-10">
+        <input type="text" ng-model="frm.name" class="form-control">
+      </div>
+    </div>
+
+    <div class="form-group">
+			<label for="type" class="col-sm-2 control-label">Tipologia</label>
 			<div class="col-sm-10">
-				<textarea class="form-control" ng-model="frm.description"></textarea>
+        <select class="form-control" ng-model="frm.type" rows="8" class="form-control">
+					<option value="junior">Junior</option>
+					<option value="senior">Senior</option>
+
+				</select>
 			</div>
 		</div>
-		<div class="form-group">
+
+    <div class="form-group">
+      <label for="hired" class="col-sm-2 control-label">Data assunzione</label>
+      <div class="col-sm-10">
+        <input type="date" ng-model="frm.hired" class="form-control">
+      </div>
+    </div>
+
+
+
+    <div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
 				<button type="submit" value="submit" class="btn btn-primary">Insert Blog</button>
 			</div>
@@ -64,18 +85,43 @@
 	            </div>
 	            <div class="modal-body">
 	             	<form class="form-horizontal" id="blogForm">
-						<div class="form-group">
-							<label for="title" class="col-sm-2 control-label">Title</label>
+
+            <div class="form-group">
+							<label for="surname" class="col-sm-2 control-label">Cognome</label>
 							<div class="col-sm-10">
-								<input type="text" ng-model="editBlogData.title" class="form-control">
+								<input type="text" ng-model="editBlogData.surname" class="form-control">
 							</div>
 						</div>
-						<div class="form-group">
-							<label for="description" class="col-sm-2 control-label">Description</label>
-							<div class="col-sm-10">
-								<textarea class="form-control" ng-model="editBlogData.description" rows="8"></textarea>
-							</div>
-						</div>
+
+            <div class="form-group">
+              <label for="name" class="col-sm-2 control-label">Nome</label>
+              <div class="col-sm-10">
+                <input type="text" ng-model="editBlogData.name" class="form-control">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="title" class="col-sm-2 control-label">Tipologia</label>
+              <div class="col-sm-10">
+                  <select class="form-control" ng-model="editBlogData.type" rows="8" class="form-control">
+                    <option value="junior">Junior</option>
+                    <option value="senior">Senior</option>
+
+                  </select>
+                </div>
+
+
+              </div>
+
+            <div class="form-group">
+              <label for="name" class="col-sm-2 control-label">Data assunzione</label>
+              <div class="col-sm-10">
+                <input type="date" ng-model="editBlogData.hired" class="form-control">
+              </div>
+            </div>
+
+
+
 					</form>
 	            </div>
 	            <div class="modal-footer">

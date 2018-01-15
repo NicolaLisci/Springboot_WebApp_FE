@@ -5,9 +5,9 @@
 
 	$db = new DB();
 
-	$sql = "INSERT INTO `resource` (`id`, `surname`, `name`, `type`, `hired`)
+	$sql = "INSERT INTO `resource` (`surname`, `name`, `type`, `hired`)
 	VALUES('$data->surname','$data->name','$data->type','$data->hired')";
-	$data = $db->qryFire($sql);
+	$data = $db->qryFireR($sql);
 
 	echo json_encode($data);
 

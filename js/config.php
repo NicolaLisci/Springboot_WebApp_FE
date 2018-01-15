@@ -16,7 +16,7 @@
 			}
 		}
 
-		public function qryPop() {
+		public function qryPopP() {
 			$sql = "SELECT * FROM `project` ORDER BY `id` DESC";
 			$qry = $this->con->query($sql);
 			if($qry->num_rows > 0) {
@@ -41,7 +41,7 @@
 
 		public function qryFireP($sql=null) {
 			if($sql) $this->con->query($sql);
-			$this->qryPop();
+			$this->qryPopP();
 			$this->con->close();
 			return $this->data;
 		}
