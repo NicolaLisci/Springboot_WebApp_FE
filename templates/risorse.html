@@ -42,13 +42,13 @@
 
     <div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
-				<button type="submit" value="submit" class="btn btn-primary">Insert Blog</button>
+				<button type="submit" value="submit" class="btn btn-primary">Inserisci Risorsa</button>
 			</div>
 		</div>
 	</form>
 
 	<br>
-	<input type="search" ng-model="query.surname" placeholder="Search by Surname" class="form-control">
+	<input type="search" ng-model="query.surname" placeholder="Cerca per cognome" class="form-control">
 	<br>
 
 
@@ -59,7 +59,7 @@
 <p>inizio</p>
 	<table class="table table-striped">
 	 	<tr>
-	 		<th>Cognome</th><th>Nome</th><th>Tipo</th> <th>Data Assunzione</th><th style="width: 100px;">Remove</th>
+	 		<th>Cognome</th><th>Nome</th><th>Tipo</th> <th>Data Assunzione</th><th style="width: 100px;">Rimuovi</th>
 	 	</tr>
 	 	<tr ng-repeat="el in resource | filter: query track by $index">
 	 		<td>{{ el.surname }}</td><td>{{ el.name }}</td><td>{{ el.type}}</td><td>{{ el.hired}}</td>
@@ -73,7 +73,7 @@
 	</table>
 <p>fine</p>
 	<!-- Button trigger modal -->
-	
+
 	<div class="modal fade" id="edit-modal" tabindex="-1" role="dialog" aria-labelledby="edit-modalLabel">
 	    <div class="modal-dialog modal-lg" role="document">
 	        <div class="modal-content">

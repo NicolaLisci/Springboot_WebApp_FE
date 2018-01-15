@@ -16,10 +16,21 @@
 		<div class="form-group">
 			<label for="start_project" class="col-sm-2 control-label">Inizio</label>
 			<div class="col-sm-10">
-				<div class="input-group date">
-  				<input type="text" class="form-control" ng-model="frm.start_project">
-					<span class="input-group-addon">
-					<i class="glyphicon glyphicon-th"></i></span>
+
+
+					<div class="input-group date">
+					  <input type="text" class="form-control" ng-model="frm.start_project">
+						<span class="input-group-addon">
+						<i class="glyphicon glyphicon-th"></i>
+						</span>
+
+
+					<script>
+								$('#sandbox-container .input-group.date').datepicker({
+									format: "dd/mm/yyyy",weekStart: 1});
+					</script>
+
+
 				</div>
 			</div>
 		</div>
@@ -33,11 +44,11 @@
 			<label for="status" class="col-sm-2 control-label">Stato</label>
 			<div class="col-sm-10">
 				<select class="form-control" ng-model="frm.status" rows="8" class="form-control">
-					<option value="evaluation">Evaluation</option>
-					<option value="design">Design</option>
-					<option value="development">Development</option>
-					<option value="delivery">Delivery</option>
-					<option value="closing">Closing</option>
+					<option value="Evaluation">Evaluation</option>
+					<option value="Design">Design</option>
+					<option value="Development">Development</option>
+					<option value="Delivery">Delivery</option>
+					<option value="Closing">Closing</option>
 				</select>
 			</div>
 		</div>
@@ -56,19 +67,19 @@
 
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
-				<button type="submit" value="submit" class="btn btn-primary">Insert Blog</button>
+				<button type="submit" value="submit" class="btn btn-primary">Aggiungi Progetto</button>
 			</div>
 		</div>
 	</form>
 
 	<br>
-	<input type="search" ng-model="query.title" placeholder="Search Blog" class="form-control">
+	<input type="search" ng-model="query.name_project" placeholder="Cerca Progetto" class="form-control">
 	<br>
 
 <p>inizio</p>
 	<table class="table table-striped">
 	 	<tr>
-	 		<th>Nome</th><th>Start</th><th>Deadline</th> <th>Stato</th> <th>Senior</th> <th>Junior</th><th style="width: 100px;">Remove</th>
+	 		<th>Nome</th><th>Inizio</th><th>Scadenza</th> <th>Stato</th> <th>Senior</th> <th>Junior</th><th style="width: 100px;">Rimuovi</th>
 	 	</tr>
 	 	<tr ng-repeat="el in project | filter: query track by $index">
 	 		<td>{{ el.name_project }}</td><td>{{ el.start_project }}</td><td>{{ el.deadline }}</td><td>{{ el.status}}</td><td>{{ el.nsenior}}</td><td>{{ el.njunior }}</td>
@@ -113,11 +124,11 @@
 							<label for="status" class="col-sm-2 control-label">Stato</label>
 							<div class="col-sm-10">
 								<select class="form-control" ng-model="editBlogData.status" rows="8">
-									<option value="evaluation">Evaluation</option>
-									<option value="design">Design</option>
-									<option value="development">Development</option>
-									<option value="delivery">Delivery</option>
-									<option value="closing">Closing</option>
+									<option value="Evaluation">Evaluation</option>
+									<option value="Design">Design</option>
+									<option value="Development">Development</option>
+									<option value="Delivery">Delivery</option>
+									<option value="Closing">Closing</option>
 								</select>
 							</div>
 						</div>
