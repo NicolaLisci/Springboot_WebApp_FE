@@ -29,21 +29,23 @@
 	<br>
 	<input type="search" ng-model="query.title" placeholder="Search Blog" class="form-control">
 	<br>
+
+<p>inizio</p>
 	<table class="table table-striped">
 	 	<tr>
-	 		<th>Title</th><th>Description</th><th style="width: 150px;">Added</th><th style="width: 100px;">Remove</th>
+	 		<th>Nome</th><th>Start</th><th>Deadline</th> <th>Stato</th> <th>Senior</th> <th>Junior</th><th style="width: 100px;">Remove</th>
 	 	</tr>
-	 	<tr ng-repeat="blog in blogs | filter: query track by $index">
-	 		<td>{{ blog.title }}</td><td>{{ blog.description }}</td><td>{{ blog.added_date }}</td>
+	 	<tr ng-repeat="el in project | filter: query track by $index">
+	 		<td>{{ el.name }}</td><td>{{ el.start_project }}</td><td>{{ el.deadline }}</td><td>{{ el.status}}</td><td>{{ el.nsenior}}</td><td>{{ el.njunior }}</td>
 	 		<td>
 	 			<div class="btn-group">
-	 				<button class="btn btn-warning" ng-click="editData(blog)"><span class="glyphicon glyphicon-pencil"></span></button>
-	 				<button class="btn btn-danger" ng-click="removeData(blog.id)"><span class="glyphicon glyphicon-remove"></span></button>
+	 				<button class="btn btn-warning" ng-click="editData(el)"><span class="glyphicon glyphicon-pencil"></span></button>
+	 				<button class="btn btn-danger" ng-click="removeData(el.id)"><span class="glyphicon glyphicon-remove"></span></button>
 	 			</div>
 	 		</td>
 	 	</tr>
 	</table>
-
+<p>fine</p>
 	<!-- Button trigger modal -->
 	<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#edit-modal">
 	  	Launch demo modal
