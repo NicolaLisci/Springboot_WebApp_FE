@@ -45,7 +45,7 @@ angular.module('controller', [])
 
     $scope.updateDataP = function($params) {
         $('#edit-modal').modal('hide');
-        $http.post('./js/updateDataP.php', {  'name_project': $params.name_project, 'start_project': $params.start_project,
+        $http.post('./js/updateDataP.php', {'id': $params.id, 'name_project': $params.name_project, 'start_project': $params.start_project,
       'deadline':$params.deadline, 'status':$params.status,'nsenior':$params.nsenior,'njunior':$params.njunior })
             .success(function(data) {
                 $scope.notification.success = true;
@@ -143,7 +143,7 @@ angular.module('controller', [])
 
     $scope.updateDataR = function($params) {
         $('#edit-modal').modal('hide');
-        $http.post('./js/updateDataR.php', { 'surname': $params.surname, 'name': $params.name,
+        $http.post('./js/updateDataR.php', {'id': $params.id, 'surname': $params.surname, 'name': $params.name,
 'type':$params.type, 'hired':$params.hired})
             .success(function(data) {
                 $scope.notification.success = true;
