@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Creato il: Gen 15, 2018 alle 17:36
+-- Creato il: Gen 15, 2018 alle 17:44
 -- Versione del server: 5.6.35
 -- Versione PHP: 7.1.8
 
@@ -13,6 +13,43 @@ SET time_zone = "+00:00";
 --
 -- Database: `resources`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `employement`
+--
+
+CREATE TABLE `employement` (
+  `id_r` int(11) NOT NULL,
+  `id_p` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `project`
+--
+
+CREATE TABLE `project` (
+  `id` int(11) NOT NULL,
+  `name_project` varchar(45) DEFAULT NULL,
+  `start_project` date DEFAULT NULL,
+  `deadline` date DEFAULT NULL,
+  `status` varchar(45) DEFAULT NULL,
+  `nsenior` int(3) DEFAULT NULL,
+  `njunior` int(3) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dump dei dati per la tabella `project`
+--
+
+INSERT INTO `project` (`id`, `name_project`, `start_project`, `deadline`, `status`, `nsenior`, `njunior`) VALUES
+(1, 'Prova', '2018-01-01', '2018-01-15', 'Delivery', 3, 3),
+(6, 'prova 4', '3005-07-03', '3005-07-03', 'Evaluation', 4, 5),
+(7, 'prova10', '0000-00-00', '2122-09-20', 'Design', 8, 8),
+(8, 'a me funziona', '0000-00-00', '3234-08-31', 'Design', 2, 5);
 
 -- --------------------------------------------------------
 
@@ -69,6 +106,19 @@ INSERT INTO `resource` (`id`, `surname`, `name`, `type`, `hired`) VALUES
 --
 
 --
+-- Indici per le tabelle `employement`
+--
+ALTER TABLE `employement`
+  ADD PRIMARY KEY (`id_r`,`id_p`),
+  ADD KEY `id_idx` (`id_p`);
+
+--
+-- Indici per le tabelle `project`
+--
+ALTER TABLE `project`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indici per le tabelle `resource`
 --
 ALTER TABLE `resource`
@@ -79,7 +129,21 @@ ALTER TABLE `resource`
 --
 
 --
+-- AUTO_INCREMENT per la tabella `project`
+--
+ALTER TABLE `project`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
 -- AUTO_INCREMENT per la tabella `resource`
 --
 ALTER TABLE `resource`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+--
+-- Limiti per le tabelle scaricate
+--
+
+--
+-- Limiti per la tabella `employement`
+--
+ALTER TABLE `employement`
+  ADD CONSTRAINT `id` FOREIGN KEY (`id_p`) REFERENCES `project` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
