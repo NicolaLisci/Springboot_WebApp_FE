@@ -1,66 +1,85 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.13.1deb1
--- http://www.phpmyadmin.net
+-- version 4.7.3
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jan 04, 2016 at 01:02 PM
--- Server version: 5.6.27-0ubuntu1
--- PHP Version: 5.6.11-1ubuntu3.1
+-- Host: localhost:8889
+-- Creato il: Gen 15, 2018 alle 17:36
+-- Versione del server: 5.6.35
+-- Versione PHP: 7.1.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 --
--- Database: `project`
+-- Database: `resources`
 --
-CREATE DATABASE IF NOT EXISTS `project` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `project`;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `blogs`
+-- Struttura della tabella `resource`
 --
 
-CREATE TABLE IF NOT EXISTS `blogs` (
+CREATE TABLE `resource` (
   `id` int(11) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `description` text NOT NULL,
-  `added_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `surname` varchar(45) DEFAULT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `type` varchar(45) DEFAULT NULL,
+  `hired` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `blogs`
+-- Dump dei dati per la tabella `resource`
 --
 
-INSERT INTO `blogs` (`id`, `title`, `description`, `added_date`) VALUES
-(1, 'Lorem Ipsum', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras diam urna, venenatis a ullamcorper a, euismod eget mauris. Nullam tempor in turpis accumsan porta. Quisque eget dignissim est. Sed leo ex, dictum tincidunt felis at, semper dignissim magna. In hac habitasse platea dictumst.', '2016-01-04 07:13:06');
+INSERT INTO `resource` (`id`, `surname`, `name`, `type`, `hired`) VALUES
+(2, 'Boi', 'Luca', 'Cyber Security', NULL),
+(3, 'Boi', 'Luca', 'Cyber Security', NULL),
+(4, 'Boi', 'Luca', 'Cyber Security', NULL),
+(5, 'Boi', 'Luca', 'Cyber Security', NULL),
+(6, 'caredda', 'mauro', 'junior', NULL),
+(7, 'Artizu', 'Marco', 'junior', NULL),
+(8, 'arzu', 'lucia', 'Senior', NULL),
+(9, 'Orru', 'Marco', 'Senior', NULL),
+(10, 'Orru', 'Marco', 'Senior', NULL),
+(11, 'caredda', 'mauro', 'senior', NULL),
+(12, 'Sesselego', 'Matteo', 'CyberBoy', NULL),
+(13, 'Lobina', 'Jessica', 'Senior master girl ass', NULL),
+(14, 'Lobina', 'Jessica', 'Senior', NULL),
+(15, 'caredda', 'mauro', 'junior', NULL),
+(16, 'Boi', 'Luca', 'Cyber Security', NULL),
+(17, 'Boi', 'Mauro', 'dev', NULL),
+(18, 'Boi', 'Mauro', 'dev', NULL),
+(19, 'Boi', 'Mauro', 'dev', NULL),
+(20, 'Boi', 'Mauro', 'dev', NULL),
+(21, 'Boi', 'Mauro', 'dev', NULL),
+(22, 'Boi', 'Mauro', 'dev', NULL),
+(23, 'Boi', 'Mauro', 'dev', NULL),
+(24, 'Boi', 'Mauro', 'dev', NULL),
+(25, 'Boi', 'Mauro', 'dev', NULL),
+(26, 'Boi', 'Mauro', 'dev', NULL),
+(27, 'Boi', 'Mauro', 'dev', '1973-11-26'),
+(28, 'Cabras', 'Matteo', 'junior', '2018-01-12'),
+(30, 'Scalas', 'Simone', 'Senior', '2018-01-08'),
+(32, 'rererereerer', 'wqqwwqqw', 'junior', '3225-08-31'),
+(36, 'Lisci', 'nicola', 'senior', '3234-08-31');
 
 --
--- Indexes for dumped tables
+-- Indici per le tabelle scaricate
 --
 
 --
--- Indexes for table `blogs`
+-- Indici per le tabelle `resource`
 --
-ALTER TABLE `blogs`
+ALTER TABLE `resource`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT per le tabelle scaricate
 --
 
 --
--- AUTO_INCREMENT for table `blogs`
+-- AUTO_INCREMENT per la tabella `resource`
 --
-ALTER TABLE `blogs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+ALTER TABLE `resource`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
