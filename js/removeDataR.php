@@ -8,6 +8,8 @@
 
 	$sql = "DELETE FROM `resource` WHERE `id` = $data->id";
 
-	$data = $db->qryFire($sql);
+	$data = $db->qryFireR($sql);
 
 	echo json_encode($data);
+
+?>

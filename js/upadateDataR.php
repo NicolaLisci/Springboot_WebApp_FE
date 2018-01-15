@@ -9,6 +9,7 @@
   `type` = '$data->type', `hired` = '$data->hired'
   WHERE `id` = '$data->id'";
 
-	$data = $db->qryFire($sql);
+	$data = $db->qryFireR($sql);
 
 	echo json_encode($data);
+?>

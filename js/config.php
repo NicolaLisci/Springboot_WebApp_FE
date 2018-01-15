@@ -39,9 +39,15 @@
 			}
 		}
 
-		public function qryFire($sql=null) {
+		public function qryFireP($sql=null) {
 			if($sql) $this->con->query($sql);
 			$this->qryPop();
+			$this->con->close();
+			return $this->data;
+		}
+		public function qryFireR($sql=null) {
+			if($sql) $this->con->query($sql);
+			$this->qryPopR();
 			$this->con->close();
 			return $this->data;
 		}

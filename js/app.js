@@ -9,6 +9,10 @@ angular.module('app', ['ngRoute', 'controller'])
 		templateUrl: 'templates/progetti.html',
 		controller: 'BlogCtrl'
 	})
+	.when('/risorse', {
+		templateUrl: 'templates/risorse.html',
+		controller: 'ResCtrl'
+	})
 	.otherwise({
 		templateUrl: 'templates/404.html'
 	})

@@ -8,6 +8,8 @@
 
 	$sql = "DELETE FROM `project` WHERE `id` = $data->id";
 
-	$data = $db->qryFire($sql);
+	$data = $db->qryFireP($sql);
 
 	echo json_encode($data);
+
+?>

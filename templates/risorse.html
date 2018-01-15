@@ -3,12 +3,12 @@
 	<div class="alert alert-success" role="alert" ng-if="notification.success">{{ notification.message }}</div>
 	<div class="alert alert-error" role="alert" ng-if="notification.error">{{ notification.message }}</div>
 
-	<button class="btn btn-primary" ng-click="frmToggle()">Aggiungi Progetto</button>
+	<button class="btn btn-primary" ng-click="frmToggle()">Add Project</button>
 	<br>
 
 	<form class="form-horizontal" id="blogForm" ng-submit="pushData(frm)" hidden>
 		<div class="form-group">
-			<label for="name_project" class="col-sm-2 control-label">Nome</label>
+			<label for="title" class="col-sm-2 control-label">Title</label>
 			<div class="col-sm-10">
 				<input type="text" ng-model="frm.title" class="form-control">
 			</div>
@@ -30,17 +30,22 @@
 	<input type="search" ng-model="query.title" placeholder="Search Blog" class="form-control">
 	<br>
 
+
+
+
+
+
 <p>inizio</p>
 	<table class="table table-striped">
 	 	<tr>
-	 		<th>Nome</th><th>Start</th><th>Deadline</th> <th>Stato</th> <th>Senior</th> <th>Junior</th><th style="width: 100px;">Remove</th>
+	 		<th>Cognome</th><th>Nome</th><th>Tipo</th> <th>Data Assunzione</th><th style="width: 100px;">Remove</th>
 	 	</tr>
-	 	<tr ng-repeat="el in project | filter: query track by $index">
-	 		<td>{{ el.name_project }}</td><td>{{ el.start_project }}</td><td>{{ el.deadline }}</td><td>{{ el.status}}</td><td>{{ el.nsenior}}</td><td>{{ el.njunior }}</td>
+	 	<tr ng-repeat="el in resource | filter: query track by $index">
+	 		<td>{{ el.surname }}</td><td>{{ el.name }}</td><td>{{ el.type}}</td><td>{{ el.hired}}</td>
 	 		<td>
 	 			<div class="btn-group">
 	 				<button class="btn btn-warning" ng-click="editData(el)"><span class="glyphicon glyphicon-pencil"></span></button>
-	 				<button class="btn btn-danger" ng-click="removeData(el.id)"><span class="glyphicon glyphicon-remove"></span></button>
+	 				<button class="btn btn-danger" ng-click="removeDataR(el.id)"><span class="glyphicon glyphicon-remove"></span></button>
 	 			</div>
 	 		</td>
 	 	</tr>
@@ -55,50 +60,20 @@
 	        <div class="modal-content">
 	            <div class="modal-header">
 	                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	                <h4 class="modal-title" id="edit-modalLabel">Edit Progetto ( {{ editBlogData.name_project }} )</h4>
+	                <h4 class="modal-title" id="edit-modalLabel">Edit Blog ( {{ editBlogData.title }} )</h4>
 	            </div>
 	            <div class="modal-body">
 	             	<form class="form-horizontal" id="blogForm">
 						<div class="form-group">
-							<label for="name_project" class="col-sm-2 control-label">Nome progetto</label>
+							<label for="title" class="col-sm-2 control-label">Title</label>
 							<div class="col-sm-10">
-								<input type="text" ng-model="editBlogData.name_project" class="form-control">
+								<input type="text" ng-model="editBlogData.title" class="form-control">
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="start_project" class="col-sm-2 control-label">Inizio</label>
+							<label for="description" class="col-sm-2 control-label">Description</label>
 							<div class="col-sm-10">
-								<input type="date" class="form-control" ng-model="editBlogData.start_project" rows="8"></input>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="deadline" class="col-sm-2 control-label">Termine</label>
-							<div class="col-sm-10">
-								<input type="date" class="form-control" ng-model="editBlogData.deadline" rows="8"></input>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="status" class="col-sm-2 control-label">Stato</label>
-							<div class="col-sm-10">
-								<select class="form-control" ng-model="editBlogData.status" rows="8">
-									<option value="evaluation">Evaluation</option>
-									<option value="design">Design</option>
-									<option value="development">Development</option>
-									<option value="delivery">Delivery</option>
-									<option value="closing">Closing</option>
-								</select>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="nsenior" class="col-sm-2 control-label">Risorse Senior</label>
-							<div class="col-sm-10">
-								<input type="number" class="form-control" ng-model="editBlogData.nsenior" rows="8"></input>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="njunior" class="col-sm-2 control-label">Risorse Junior</label>
-							<div class="col-sm-10">
-								<input type="number" class="form-control" ng-model="editBlogData.njunior" rows="8"></input>
+								<textarea class="form-control" ng-model="editBlogData.description" rows="8"></textarea>
 							</div>
 						</div>
 					</form>

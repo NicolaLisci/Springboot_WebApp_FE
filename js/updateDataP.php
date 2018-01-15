@@ -9,6 +9,7 @@
 	`deadline` = '$data->deadline',`status` = '$data->status',`nsenior` = '$data->nsenior',`njunior` = '$data->njunior'
 	WHERE `id` = '$data->id'";
 
-	$data = $db->qryFire($sql);
+	$data = $db->qryFireP($sql);
 
 	echo json_encode($data);
+?>

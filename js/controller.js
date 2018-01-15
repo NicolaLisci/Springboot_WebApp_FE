@@ -8,9 +8,9 @@ angular.module('controller', [])
         $('#blogForm').slideToggle();
     }
 
-    $http.get('./js/popData.php')
+    $http.get('./js/popDataP.php')
         .success(function(data) {
-            $scope.blogs = data;
+            $scope.project = data;
         })
         .error(function(err) {
             $log.error(err);
@@ -108,7 +108,7 @@ angular.module('controller', [])
 
     $http.get('./js/popDataR.php')
         .success(function(data) {
-            $scope.blogs = data;
+            $scope.resource = data;
         })
         .error(function(err) {
             $log.error(err);
@@ -143,7 +143,7 @@ angular.module('controller', [])
 
     $scope.updateData = function($params) {
         $('#edit-modal').modal('hide');
-        $http.post('./js/updateData.php', { 'surname': $params.surname, 'name': $params.name,
+        $http.post('./js/updateDataR.php', { 'surname': $params.surname, 'name': $params.name,
 'type':$params.type, 'hired':$params.hired})
             .success(function(data) {
                 $scope.notification.success = true;

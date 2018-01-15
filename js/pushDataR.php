@@ -10,3 +10,5 @@
 	$data = $db->qryFire($sql);
 
 	echo json_encode($data);
+
+?>
