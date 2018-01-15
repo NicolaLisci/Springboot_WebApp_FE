@@ -16,7 +16,7 @@ angular.module('controller', [])
             $log.error(err);
         })
 
-    $scope.pushData = function($params) {
+    $scope.pushDataP = function($params) {
         $http.post('./js/pushDataP.php', { 'name_project': $params.name_project, 'start_project': $params.start_project,
       'deadline':$params.deadline, 'status':$params.status,'nsenior':$params.nsenior,'njunior':$params.njunior })
             .success(function(data) {
@@ -43,7 +43,7 @@ angular.module('controller', [])
         $('#edit-modal').modal('show');
     }
 
-    $scope.updateData = function($params) {
+    $scope.updateDataP = function($params) {
         $('#edit-modal').modal('hide');
         $http.post('./js/updateDataP.php', {  'name_project': $params.name_project, 'start_project': $params.start_project,
       'deadline':$params.deadline, 'status':$params.status,'nsenior':$params.nsenior,'njunior':$params.njunior })
@@ -66,7 +66,7 @@ angular.module('controller', [])
             })
     }
 
-    $scope.removeData = function($params) {
+    $scope.removeDataP = function($params) {
         var cnfrm = confirm("Are you sure to delete?");
         if (cnfrm) {
             $http.post('./js/removeDataP.php', { 'id': $params })
@@ -114,7 +114,7 @@ angular.module('controller', [])
             $log.error(err);
         })
 
-    $scope.pushData = function($params) {
+    $scope.pushDataR = function($params) {
         $http.post('./js/pushDataR.php', { 'surname': $params.surname, 'name': $params.name,
 'type':$params.type, 'hired':$params.hired})
             .success(function(data) {
@@ -141,7 +141,7 @@ angular.module('controller', [])
         $('#edit-modal').modal('show');
     }
 
-    $scope.updateData = function($params) {
+    $scope.updateDataR = function($params) {
         $('#edit-modal').modal('hide');
         $http.post('./js/updateDataR.php', { 'surname': $params.surname, 'name': $params.name,
 'type':$params.type, 'hired':$params.hired})
@@ -152,7 +152,7 @@ angular.module('controller', [])
                     $scope.notification = {};
                 }, 3000);
                 $scope.blogs = data;
-                $scope.frm = $scope.editBlogData = {};
+                $scope.frm = $scope.uppdateDataR = {};
             })
             .error(function(err) {
                 $scope.notification.error = true;
@@ -164,10 +164,10 @@ angular.module('controller', [])
             })
     }
 
-    $scope.removeData = function($params) {
+    $scope.removeDataR = function($params) {
         var cnfrm = confirm("Are you sure to delete?");
         if (cnfrm) {
-            $http.post('./js/removeData.php', { 'id': $params })
+            $http.post('./js/removeDataR.php', { 'id': $params })
                 .success(function(data) {
                     $scope.notification.success = true;
                     $scope.notification.message = "Resource Successfully Deleted!";

@@ -6,7 +6,7 @@
 	<button class="btn btn-primary" ng-click="frmToggle()">Aggiungi Risorsa</button>
 	<br>
 
-	<form class="form-horizontal" id="blogForm" ng-submit="pushData(frm)" hidden>
+	<form class="form-horizontal" id="blogForm" ng-submit="pushDataR(frm)" hidden>
 		<div class="form-group">
 			<label for="surname" class="col-sm-2 control-label">Cognome</label>
 			<div class="col-sm-10">
@@ -48,7 +48,7 @@
 	</form>
 
 	<br>
-	<input type="search" ng-model="query.title" placeholder="Search Blog" class="form-control">
+	<input type="search" ng-model="query.surname" placeholder="Search by Surname" class="form-control">
 	<br>
 
 
@@ -65,7 +65,7 @@
 	 		<td>{{ el.surname }}</td><td>{{ el.name }}</td><td>{{ el.type}}</td><td>{{ el.hired}}</td>
 	 		<td>
 	 			<div class="btn-group">
-	 				<button class="btn btn-warning" ng-click="editData(el)"><span class="glyphicon glyphicon-pencil"></span></button>
+	 				<button class="btn btn-warning" ng-click="updateDataR(el.id)"><span class="glyphicon glyphicon-pencil"></span></button>
 	 				<button class="btn btn-danger" ng-click="removeDataR(el.id)"><span class="glyphicon glyphicon-remove"></span></button>
 	 			</div>
 	 		</td>
