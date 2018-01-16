@@ -15,6 +15,13 @@ angular.module('controller', [])
         .error(function(err) {
             $log.error(err);
         })
+        $http.get('./js/popDataR.php')
+            .success(function(data) {
+                $scope.resource = data;
+            })
+            .error(function(err) {
+                $log.error(err);
+            })
 
     $scope.pushDataP = function($params) {
         $http.post('./js/pushDataP.php', { 'name_project': $params.name_project, 'start_project': $params.start_project,
@@ -43,6 +50,8 @@ angular.module('controller', [])
         $('#edit-modal').modal('show');
     }
 
+
+
     $scope.updateDataP = function($params) {
         $('#edit-modal').modal('hide');
         $http.post('./js/updateDataP.php', {'id': $params.id, 'name_project': $params.name_project, 'start_project': $params.start_project,
@@ -69,9 +78,11 @@ angular.module('controller', [])
 
     //_____________________________________________________________________________
 
+
+
     $scope.assignR = function($params) {
-        $('#assigned').modal('hide');
-        $http.post('./js/assignR.php', {'id': $params.id, 'assigned':$params.assigned})
+        $('#assigned').modal('show');
+        $http.post('./js/assignR.php', {'id': $params.id,  'name_project': $params.name_project,'assigned':$params.assigned})
             .success(function(data) {
                 $scope.notification.success = true;
                 $scope.notification.message = "Risorsa assegnata al progetto!";
@@ -166,6 +177,11 @@ angular.module('controller', [])
         $('#edit-modal').modal('show');
     }
 
+
+    $scope.editData1 = function($blog) {
+        $scope.editBlogData1 = $blog;
+        $('#assigned').modal('show');
+    }
 
     $scope.updateDataR = function($params) {
         $('#edit-modal').modal('hide');

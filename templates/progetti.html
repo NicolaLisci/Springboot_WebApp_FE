@@ -37,7 +37,7 @@
 		<div class="form-group">
 			<label for="deadline" class="col-sm-2 control-label">Termine</label>
 			<div class="col-sm-10">
-				<input type="date" ng-model="frm.deadline" class="form-control">
+				<input type="text" ng-model="frm.deadline" class="form-control">
 			</div>
 		</div>
 		<div class="form-group">
@@ -55,13 +55,13 @@
 		<div class="form-group">
 			<label for="nsenior" class="col-sm-2 control-label">Risorse Senior</label>
 			<div class="col-sm-10">
-				<input type="number" ng-model="frm.nsenior" class="form-control">
+				<input type="text" ng-model="frm.nsenior" class="form-control">
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="njunior" class="col-sm-2 control-label">Risorse Junior</label>
 			<div class="col-sm-10">
-				<input type="number" ng-model="frm.njunior" class="form-control">
+				<input type="text" ng-model="frm.njunior" class="form-control">
 			</div>
 		</div>
 
@@ -86,7 +86,7 @@
 	 		<td>
 				<center>
 					<div class="btn-group">
-					<button class="btn btn-primary" ng-click="assignR(el.id)"><span class="glyphicon glyphicon-user"></span></button>
+					<button class="btn btn-primary" ng-click="assignR(el.name_project)"><span class="glyphicon glyphicon-user"></span></button>
 					</div>
 					<center>
 			</td>
@@ -118,13 +118,13 @@
 						<div class="form-group">
 							<label for="start_project" class="col-sm-2 control-label">Inizio</label>
 							<div class="col-sm-10">
-								<input type="date" class="form-control" ng-model="editBlogData.start_project" rows="8"></input>
+								<input type="text" class="form-control" ng-model="editBlogData.start_project" rows="8"></input>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="deadline" class="col-sm-2 control-label">Termine</label>
 							<div class="col-sm-10">
-								<input type="date" class="form-control" ng-model="editBlogData.deadline" rows="8"></input>
+								<input type="text" class="form-control" ng-model="editBlogData.deadline" rows="8"></input>
 							</div>
 						</div>
 						<div class="form-group">
@@ -142,13 +142,13 @@
 						<div class="form-group">
 							<label for="nsenior" class="col-sm-2 control-label">Risorse Senior</label>
 							<div class="col-sm-10">
-								<input type="number" class="form-control" ng-model="editBlogData.nsenior" rows="8"></input>
+								<input type="text" class="form-control" ng-model="editBlogData.nsenior" rows="8"></input>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="njunior" class="col-sm-2 control-label">Risorse Junior</label>
 							<div class="col-sm-10">
-								<input type="number" class="form-control" ng-model="editBlogData.njunior" rows="8"></input>
+								<input type="text" class="form-control" ng-model="editBlogData.njunior" rows="8"></input>
 							</div>
 						</div>
 					</form>
@@ -167,53 +167,26 @@
 					<div class="modal-content">
 							<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-									<h4 class="modal-title" id="edit-modalLabel">Aggiungi Risorsa ( {{ editBlogData.name_project }} )</h4>
-							</div>
+									<h4 class="modal-title" id="edit-modalLabel">Assegna Risorsa ( {{ editBlogData1.name_project }} )</h4>
+							</div
 							<div class="modal-body">
 								<form class="form-horizontal" id="blogForm">
-						<div class="form-group">
-							<label for="name_project" class="col-sm-2 control-label">Nome progetto</label>
-							<div class="col-sm-10">
-								<input type="text" ng-model="editBlogData.name_project" class="form-control">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="start_project" class="col-sm-2 control-label">Inizio</label>
-							<div class="col-sm-10">
-								<input type="date" class="form-control" ng-model="editBlogData.start_project" rows="8"></input>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="deadline" class="col-sm-2 control-label">Termine</label>
-							<div class="col-sm-10">
-								<input type="date" class="form-control" ng-model="editBlogData.deadline" rows="8"></input>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="status" class="col-sm-2 control-label">Stato</label>
-							<div class="col-sm-10">
-								<select class="form-control" ng-model="editBlogData.status" rows="8">
-									<option value="Evaluation">Evaluation</option>
-									<option value="Design">Design</option>
-									<option value="Development">Development</option>
-									<option value="Delivery">Delivery</option>
-									<option value="Closing">Closing</option>
-								</select>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="nsenior" class="col-sm-2 control-label">Risorse Senior</label>
-							<div class="col-sm-10">
-								<input type="number" class="form-control" ng-model="editBlogData.nsenior" rows="8"></input>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="njunior" class="col-sm-2 control-label">Risorse Junior</label>
-							<div class="col-sm-10">
-								<input type="number" class="form-control" ng-model="editBlogData.njunior" rows="8"></input>
-							</div>
-						</div>
-					</form>
+									<table class="table table-striped">
+									 	<tr>
+									 		<th>Cognome</th><th>Nome</th><th>Tipo</th><th style="width: 100px;">Rimuovi</th>
+									 	</tr>
+									 	<tr ng-repeat="el1 in resource | filter: query track by $index">
+									 		<td>{{ el1.surname }}</td><td>{{ el1.name }}</td><td>{{ el1.type}}</td>
+									 		<td>
+									 			<div class="btn-group">
+									 				<button class="btn btn-warning" ng-click="editData(el1)"><span class="glyphicon glyphicon-pencil"></span></button>
+									 				<button class="btn btn-danger" ng-click="removeDataR(el1.id)"><span class="glyphicon glyphicon-remove"></span></button>
+									 			</div>
+									 		</td>
+									 	</tr>
+									</table>
+
+								</form>
 							</div>
 							<div class="modal-footer">
 									<button type="button" class="btn btn-default" data-dismiss="modal">Chiudi</button>
