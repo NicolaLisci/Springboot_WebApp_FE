@@ -21,7 +21,7 @@ angular.module('controller', [])
       'deadline':$params.deadline, 'status':$params.status,'nsenior':$params.nsenior,'njunior':$params.njunior })
             .success(function(data) {
                 $scope.notification.success = true;
-                $scope.notification.message = "Project Successfully Added!";
+                $scope.notification.message = "Progetto aggiunto!";
                 $timeout(function() {
                     $scope.notification = {};
                 }, 3000);
@@ -31,7 +31,7 @@ angular.module('controller', [])
             })
             .error(function(err) {
                 $scope.notification.error = true;
-                $scope.notification.message = "Unable to add project!";
+                $scope.notification.message = "Impossibile aggiungere progetto!";
                 $timeout(function() {
                     $scope.notification = {};
                 }, 3000);
@@ -49,7 +49,7 @@ angular.module('controller', [])
       'deadline':$params.deadline, 'status':$params.status,'nsenior':$params.nsenior,'njunior':$params.njunior })
             .success(function(data) {
                 $scope.notification.success = true;
-                $scope.notification.message = "Project Successfully Updated!";
+                $scope.notification.message = "Progetto aggiornato!";
                 $timeout(function() {
                     $scope.notification = {};
                 }, 3000);
@@ -58,7 +58,32 @@ angular.module('controller', [])
             })
             .error(function(err) {
                 $scope.notification.error = true;
-                $scope.notification.message = "Unable to updated project!";
+                $scope.notification.message = "Impossibile aggiornare il progetto!";
+                $timeout(function() {
+                    $scope.notification = {};
+                }, 3000);
+                $log.error(err);
+            })
+    }
+
+
+    //_____________________________________________________________________________
+
+    $scope.assignR = function($params) {
+        $('#assigned').modal('hide');
+        $http.post('./js/assignR.php', {'id': $params.id, 'assigned':$params.assigned})
+            .success(function(data) {
+                $scope.notification.success = true;
+                $scope.notification.message = "Risorsa assegnata al progetto!";
+                $timeout(function() {
+                    $scope.notification = {};
+                }, 3000);
+                $scope.blogs = data;
+                $scope.frm = $scope.editBlogData = {};
+            })
+            .error(function(err) {
+                $scope.notification.error = true;
+                $scope.notification.message = "Impossibile assegnare la risorsa!";
                 $timeout(function() {
                     $scope.notification = {};
                 }, 3000);
@@ -67,12 +92,12 @@ angular.module('controller', [])
     }
 
     $scope.removeDataP = function($params) {
-        var cnfrm = confirm("Are you sure to delete?");
+        var cnfrm = confirm("Sicuro di voler cancellare?");
         if (cnfrm) {
             $http.post('./js/removeDataP.php', { 'id': $params })
                 .success(function(data) {
                     $scope.notification.success = true;
-                    $scope.notification.message = "Project Successfully Deleted!";
+                    $scope.notification.message = "Progetto eliminato!";
                     $timeout(function() {
                         $scope.notification = {};
                     }, 3000);
@@ -80,7 +105,7 @@ angular.module('controller', [])
                 })
                 .error(function(err) {
                     $scope.notification.error = true;
-                    $scope.notification.message = "Unable to delete project!";
+                    $scope.notification.message = "Impossibile eliminare il progetto!";
                     $timeout(function() {
                         $scope.notification = {};
                     }, 3000);
@@ -119,7 +144,7 @@ angular.module('controller', [])
 'type':$params.type, 'hired':$params.hired})
             .success(function(data) {
                 $scope.notification.success = true;
-                $scope.notification.message = "Resource Successfully Added!";
+                $scope.notification.message = "Risorsa aggiunta!";
                 $timeout(function() {
                     $scope.notification = {};
                 }, 3000);
@@ -129,7 +154,7 @@ angular.module('controller', [])
             })
             .error(function(err) {
                 $scope.notification.error = true;
-                $scope.notification.message = "Unable to add resource!";
+                $scope.notification.message = "Impossibile aggiungere la risorsa!";
                 $timeout(function() {
                     $scope.notification = {};
                 }, 3000);
@@ -141,13 +166,14 @@ angular.module('controller', [])
         $('#edit-modal').modal('show');
     }
 
+
     $scope.updateDataR = function($params) {
         $('#edit-modal').modal('hide');
         $http.post('./js/updateDataR.php', {'id': $params.id, 'surname': $params.surname, 'name': $params.name,
 'type':$params.type, 'hired':$params.hired})
             .success(function(data) {
                 $scope.notification.success = true;
-                $scope.notification.message = "Resource Successfully Updated!";
+                $scope.notification.message = "Risorsa modificata!";
                 $timeout(function() {
                     $scope.notification = {};
                 }, 3000);
@@ -156,7 +182,7 @@ angular.module('controller', [])
             })
             .error(function(err) {
                 $scope.notification.error = true;
-                $scope.notification.message = "Unable to updated resource!";
+                $scope.notification.message = "Impossibile modificare la risorsa!";
                 $timeout(function() {
                     $scope.notification = {};
                 }, 3000);
@@ -165,12 +191,12 @@ angular.module('controller', [])
     }
 
     $scope.removeDataR = function($params) {
-        var cnfrm = confirm("Are you sure to delete?");
+        var cnfrm = confirm("Sicuro di voler cancellare?");
         if (cnfrm) {
             $http.post('./js/removeDataR.php', { 'id': $params })
                 .success(function(data) {
                     $scope.notification.success = true;
-                    $scope.notification.message = "Resource Successfully Deleted!";
+                    $scope.notification.message = "Risorsa eliminata!";
                     $timeout(function() {
                         $scope.notification = {};
                     }, 3000);
@@ -178,7 +204,7 @@ angular.module('controller', [])
                 })
                 .error(function(err) {
                     $scope.notification.error = true;
-                    $scope.notification.message = "Unable to delete resource!";
+                    $scope.notification.message = "Impossibile eliminare la risorsa!";
                     $timeout(function() {
                         $scope.notification = {};
                     }, 3000);
