@@ -1,7 +1,7 @@
 <?php
 	define("__HOST__", "localhost");
 	define("__USER__", "root");
-	define("__PASS__", "root");
+	define("__PASS__", "simone");
 	define("__BASE__", "resources");
 
 	class DB {
@@ -27,6 +27,19 @@
 				$this->data[] = null;
 			}
 		}
+
+		public function qryPopRiep() {
+			$sql = "SELECT * FROM `project` WHERE `id`=1";
+			$qry = $this->con->query($sql);
+			if($qry->num_rows > 0) {
+				while($row = $qry->fetch_object()) {
+					$this->data[] = $row;
+				}
+			} else {
+				$this->data[] = null;
+			}
+		}
+
 		public function qryPopR() {
 			$sql = "SELECT * FROM `resource` ORDER BY `id` DESC";
 			$qry = $this->con->query($sql);
@@ -39,12 +52,21 @@
 			}
 		}
 
+
 		public function qryFireP($sql=null) {
 			if($sql) $this->con->query($sql);
 			$this->qryPopP();
 			$this->con->close();
 			return $this->data;
 		}
+
+		public function qryFireRiep($sql=null) {
+			if($sql) $this->con->query($sql);
+			$this->qryPopRiep();
+			$this->con->close();
+			return $this->data;
+		}
+
 		public function qryFireR($sql=null) {
 			if($sql) $this->con->query($sql);
 			$this->qryPopR();
@@ -58,12 +80,6 @@
 			return $this->data;
 		}
 
-		public function qryRiep($sql=null) {
-			if($sql) $this->con->query($sql);
-			$this->qryPopRiep();
-			$this->con->close();
-			return $this->data;
-		}
 
 	}
 

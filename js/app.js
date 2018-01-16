@@ -13,7 +13,7 @@ angular.module('app', ['ngRoute', 'controller'])
 		templateUrl: 'templates/risorse.html',
 		controller: 'ResCtrl'
 	})
-	.when('/riepilogo/', {
+	.when('/riepilogo', {
 		templateUrl: 'templates/riepilogo.html',
 		controller: 'RiepCtrl'
 	})
