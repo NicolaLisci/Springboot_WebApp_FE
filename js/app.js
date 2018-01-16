@@ -13,6 +13,10 @@ angular.module('app', ['ngRoute', 'controller'])
 		templateUrl: 'templates/risorse.html',
 		controller: 'ResCtrl'
 	})
+	.when('/riepilogo/', {
+		templateUrl: 'templates/riepilogo.html',
+		controller: 'RiepCtrl'
+	})
 	.otherwise({
 		templateUrl: 'templates/404.html'
 	})

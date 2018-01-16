@@ -254,6 +254,7 @@ th {
   .table td,
   .table th {
     background-color: #fff !important;
+
   }
   .table-bordered th,
   .table-bordered td {
@@ -3193,7 +3194,7 @@ fieldset[disabled] .btn-primary.focus {
 .btn-success.active,
 .open > .dropdown-toggle.btn-success {
   color: #fff;
-  background-color: #449d44;
+  background-color: #183a18;
   border-color: #398439;
 }
 .btn-success:active:hover,
@@ -3206,7 +3207,7 @@ fieldset[disabled] .btn-primary.focus {
 .btn-success.active.focus,
 .open > .dropdown-toggle.btn-success.focus {
   color: #fff;
-  background-color: #398439;
+  background-color: #183a18;
   border-color: #255625;
 }
 .btn-success:active,

@@ -57,6 +57,14 @@
 			$this->con->close();
 			return $this->data;
 		}
+
+		public function qryRiep($sql=null) {
+			if($sql) $this->con->query($sql);
+			$this->qryPopRiep();
+			$this->con->close();
+			return $this->data;
+		}
+
 	}
 
 ?>

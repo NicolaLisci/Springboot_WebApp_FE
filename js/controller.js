@@ -78,7 +78,9 @@ angular.module('controller', [])
 
     //_____________________________________________________________________________
 
-
+    $("#buttonid").on("click", function() {
+        $(this).prop("disabled", true);
+    });
 
     $scope.assignR = function($params) {
         $('#assigned').modal('show');
@@ -230,5 +232,36 @@ angular.module('controller', [])
         }
 
     }
+
+    }])
+
+    //_________________________________________________________________________________________________
+    //Controller per il riepilogo
+
+    .controller('RiepCtrl', ['$scope', '$http', '$log', '$timeout', function($scope, $http, $log, $timeout) {
+        $scope.frm = {};
+        $scope.notification = {};
+
+        $scope.frmToggle = function() {
+            $('#blogForm').slideToggle();
+        }
+
+
+
+        $http.get('./js/riepilogo.php')
+            .success(function(data) {
+                $scope.project = data;
+            })
+            .error(function(err) {
+                $log.error(err);
+            })
+            $http.get('./js/popDataR.php')
+                .success(function(data) {
+                    $scope.resource = data;
+                })
+                .error(function(err) {
+                    $log.error(err);
+                })
+
 
     }])

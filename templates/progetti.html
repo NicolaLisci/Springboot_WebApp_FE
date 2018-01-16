@@ -25,12 +25,6 @@
 						</span>
 
 
-					<script>
-								$('#sandbox-container .input-group.date').datepicker({
-									format: "dd/mm/yyyy",weekStart: 1});
-					</script>
-
-
 				</div>
 			</div>
 		</div>
@@ -82,7 +76,8 @@
 	 		<th>Nome</th><th>Inizio</th><th>Scadenza</th> <th>Stato</th> <th style="text-align:center;" >Senior</th> <th style="text-align:center;">Junior</th><th style="text-align:center;">Assegna Risorse</th><th style="width: 100px;">Rimuovi</th>
 	 	</tr>
 	 	<tr ng-repeat="el in project | filter: query track by $index">
-	 		<td>{{ el.name_project }}</td><td>{{ el.start_project }}</td><td>{{ el.deadline }}</td><td>{{ el.status}}</td><td style="text-align:center;">{{ el.nsenior}}</td><td style="text-align:center;">{{ el.njunior }}</td>
+	 		<td><a href="#/riepilogo/?id={{el.id}}" class="btn btn-link" role="button">{{ el.name_project }}</a></td>
+			<td>{{ el.start_project }}</td><td>{{ el.deadline }}</td><td>{{ el.status}}</td><td style="text-align:center;">{{ el.nsenior}}</td><td style="text-align:center;">{{ el.njunior }}</td>
 	 		<td>
 				<center>
 					<div class="btn-group">
@@ -108,7 +103,7 @@
 	                <h4 class="modal-title" id="edit-modalLabel">Edit Progetto ( {{ editBlogData.name_project }} )</h4>
 	            </div>
 	            <div class="modal-body">
-	             	<form class="form-horizontal" id="blogForm">
+	 				<form class="form-horizontal" id="blogForm">
 						<div class="form-group">
 							<label for="name_project" class="col-sm-2 control-label">Nome progetto</label>
 							<div class="col-sm-10">
@@ -171,28 +166,25 @@
 							</div
 							<div class="modal-body">
 								<form class="form-horizontal" id="blogForm">
+
 									<table class="table table-striped">
 									 	<tr>
-									 		<th>Cognome</th><th>Nome</th><th>Tipo</th><th style="width: 100px;">Rimuovi</th>
+									 		<th>Cognome</th><th>Nome</th><th>Tipo</th><th>Assegna</th>
 									 	</tr>
 									 	<tr ng-repeat="el1 in resource | filter: query track by $index">
 									 		<td>{{ el1.surname }}</td><td>{{ el1.name }}</td><td>{{ el1.type}}</td>
 									 		<td>
-									 			<div class="btn-group">
-									 				<button class="btn btn-warning" ng-click="editData(el1)"><span class="glyphicon glyphicon-pencil"></span></button>
-									 				<button class="btn btn-danger" ng-click="removeDataR(el1.id)"><span class="glyphicon glyphicon-remove"></span></button>
-									 			</div>
-									 		</td>
-									 	</tr>
-									</table>
-
-								</form>
-							</div>
-							<div class="modal-footer">
-									<button type="button" class="btn btn-default" data-dismiss="modal">Chiudi</button>
-									<button type="button" class="btn btn-primary" ng-click="updateDataP(editBlogData)">Salva</button>
-							</div>
-					</div>
+												<button type="button" ng-click="assignR(el)" class="btn btn-success" data-toggle="button" aria-pressed="false" autocomplete="off">
+													<span class="glyphicon glyphicon-ok"></span></button>
+											</td>
+									</form>
+					      </div>
+											<div class="modal-footer">
+													<button type="button" class="btn btn-default" data-dismiss="modal">Chiudi</button>
+													<button type="button" class="btn btn-primary" ng-click="updateDataP(editBlogData)">Salva</button>
+												</div>
+											</div>
+										</div>
+									</div>
+									</div>
 			</div>
-	</div>
-</div>
