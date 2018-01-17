@@ -2,7 +2,7 @@
 
 	<div class="alert alert-success" role="alert" ng-if="notification.success">{{ notification.message }}</div>
 	<div class="alert alert-error" role="alert" ng-if="notification.error">{{ notification.message }}</div>
-
+<!-- inizia da qui l'inserimento
 	<button class="btn btn-primary" ng-click="frmToggle()">Aggiungi Progetto</button>
 	<br>
 
@@ -69,15 +69,19 @@
 	<br>
 	<input type="search" ng-model="query.id" placeholder="Cerca Progetto" class="form-control">
 	<br>
-
+finisce qui-->
 
 	<table class="table table-striped">
 	 	<tr>
 	 		<th>Nome</th><th>Inizio</th><th>Scadenza</th> <th>Stato</th> <th style="text-align:center;" >Senior</th> <th style="text-align:center;">Junior</th><th style="text-align:center;">Assegna Risorse</th><th style="width: 100px;">Rimuovi</th>
 	 	</tr>
 	 	<tbody ng-repeat="el in project | filter: query track by $index">
-	 		<td><a href="#/riepilogo/?id={{el.id}}" class="btn btn-link" role="button">{{ el.name_project }}</a></td>
-			<td>{{ el.start_project }}</td><td>{{ el.deadline }}</td><td>{{ el.status}}</td><td style="text-align:center;">{{ el.nsenior}}</td><td style="text-align:center;">{{ el.njunior }}</td>
+	 		<td>{{ el.name_project }}</td>
+			<td>{{ el.start_project }}</td>
+			<td>{{ el.deadline }}</td>
+			<td>{{ el.status}}</td>
+			<td style="text-align:center;">{{ el.nsenior}}</td>
+			<td style="text-align:center;">{{ el.njunior }}</td>
 	 		<td>
 				<center>
 					<a class="btn btn-link" ng-init="toggle[$index] = false" ng-click="toggle[$index] = !toggle[$index]">
@@ -94,13 +98,7 @@
 		 		</td>
 				<tr ng-if="toggle[$index]">
 					<td colspan="8">
-						<!--	<div class="modal fade" id="assigned" tabindex="-1" role="dialog" aria-labelledby="edit-modalLabel">
-								<div class="modal-dialog modal-lg" role="document">
-										<div class="modal-content">
-												<div class="modal-header">
-														<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-														<h4 class="modal-title" id="edit-modalLabel">Assegna Risorsa ( {{ editBlogData1.name_project }} )</h4>
-												</div> -->
+
 												<div class="modal-body">
 													<form class="form-horizontal" id="blogForm1">
 
@@ -111,7 +109,7 @@
 															<tr ng-repeat="el1 in resource | filter: query track by $index">
 																<td>{{ el1.surname }}</td><td>{{ el1.name }}</td><td>{{ el1.type}}</td>
 																<td>
-																	<button name="Aggiungi" type="button" ng-click="assignR(el1.id,el.id)" class="btn btn-success" data-toggle="button" aria-pressed="false" autocomplete="off">
+																	<button name="Aggiungi" type="button" ng-click="assignR({{el1.id}},{{el.id}})" class="btn btn-success" data-toggle="button" aria-pressed="false" autocomplete="off">
 																		<span class="glyphicon glyphicon-ok"></span></button>
 																</td>
 																</div>

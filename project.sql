@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Creato il: Gen 17, 2018 alle 14:40
+-- Creato il: Gen 15, 2018 alle 17:44
 -- Versione del server: 5.6.35
 -- Versione PHP: 7.1.8
 
@@ -24,13 +24,6 @@ CREATE TABLE `employement` (
   `id_r` int(11) NOT NULL,
   `id_p` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dump dei dati per la tabella `employement`
---
-
-INSERT INTO `employement` (`id_r`, `id_p`) VALUES
-(1, 1);
 
 -- --------------------------------------------------------
 
@@ -69,22 +62,44 @@ CREATE TABLE `resource` (
   `surname` varchar(45) DEFAULT NULL,
   `name` varchar(45) DEFAULT NULL,
   `type` varchar(45) DEFAULT NULL,
-  `hired` date DEFAULT NULL,
-  `assigned` tinyint(1) DEFAULT NULL
+  `hired` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dump dei dati per la tabella `resource`
 --
 
-INSERT INTO `resource` (`id`, `surname`, `name`, `type`, `hired`, `assigned`) VALUES
-(1, 'Lisci', 'nicola', 'senior', '3234-08-31', NULL),
-(27, 'Boi', 'Mauro', 'dev', '1973-11-26', NULL),
-(28, 'Cabras', 'Matteo', 'junior', '2018-01-12', NULL),
-(30, 'Scalas', 'Simone', 'Senior', '2018-01-08', NULL),
-(32, 'rererereerer', 'wqqwwqqw', 'junior', '3225-08-31', NULL),
-(37, 'tre', 'tre', 'senior', '2003-12-12', 0),
-(39, 'cxx', 'cxx', 'junior', '0000-00-00', 0);
+INSERT INTO `resource` (`id`, `surname`, `name`, `type`, `hired`) VALUES
+(2, 'Boi', 'Luca', 'Cyber Security', NULL),
+(3, 'Boi', 'Luca', 'Cyber Security', NULL),
+(4, 'Boi', 'Luca', 'Cyber Security', NULL),
+(5, 'Boi', 'Luca', 'Cyber Security', NULL),
+(6, 'caredda', 'mauro', 'junior', NULL),
+(7, 'Artizu', 'Marco', 'junior', NULL),
+(8, 'arzu', 'lucia', 'Senior', NULL),
+(9, 'Orru', 'Marco', 'Senior', NULL),
+(10, 'Orru', 'Marco', 'Senior', NULL),
+(11, 'caredda', 'mauro', 'senior', NULL),
+(12, 'Sesselego', 'Matteo', 'CyberBoy', NULL),
+(13, 'Lobina', 'Jessica', 'Senior master girl ass', NULL),
+(14, 'Lobina', 'Jessica', 'Senior', NULL),
+(15, 'caredda', 'mauro', 'junior', NULL),
+(16, 'Boi', 'Luca', 'Cyber Security', NULL),
+(17, 'Boi', 'Mauro', 'dev', NULL),
+(18, 'Boi', 'Mauro', 'dev', NULL),
+(19, 'Boi', 'Mauro', 'dev', NULL),
+(20, 'Boi', 'Mauro', 'dev', NULL),
+(21, 'Boi', 'Mauro', 'dev', NULL),
+(22, 'Boi', 'Mauro', 'dev', NULL),
+(23, 'Boi', 'Mauro', 'dev', NULL),
+(24, 'Boi', 'Mauro', 'dev', NULL),
+(25, 'Boi', 'Mauro', 'dev', NULL),
+(26, 'Boi', 'Mauro', 'dev', NULL),
+(27, 'Boi', 'Mauro', 'dev', '1973-11-26'),
+(28, 'Cabras', 'Matteo', 'junior', '2018-01-12'),
+(30, 'Scalas', 'Simone', 'Senior', '2018-01-08'),
+(32, 'rererereerer', 'wqqwwqqw', 'junior', '3225-08-31'),
+(36, 'Lisci', 'nicola', 'senior', '3234-08-31');
 
 --
 -- Indici per le tabelle scaricate
@@ -95,7 +110,7 @@ INSERT INTO `resource` (`id`, `surname`, `name`, `type`, `hired`, `assigned`) VA
 --
 ALTER TABLE `employement`
   ADD PRIMARY KEY (`id_r`,`id_p`),
-  ADD UNIQUE KEY `id_idx` (`id_p`,`id_r`) USING BTREE;
+  ADD KEY `id_idx` (`id_p`);
 
 --
 -- Indici per le tabelle `project`
@@ -122,7 +137,7 @@ ALTER TABLE `project`
 -- AUTO_INCREMENT per la tabella `resource`
 --
 ALTER TABLE `resource`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 --
 -- Limiti per le tabelle scaricate
 --
@@ -131,5 +146,4 @@ ALTER TABLE `resource`
 -- Limiti per la tabella `employement`
 --
 ALTER TABLE `employement`
-  ADD CONSTRAINT `employement_ibfk_1` FOREIGN KEY (`id_r`) REFERENCES `resource` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `id` FOREIGN KEY (`id_p`) REFERENCES `project` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `id` FOREIGN KEY (`id_p`) REFERENCES `project` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;

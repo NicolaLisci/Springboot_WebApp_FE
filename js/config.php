@@ -51,6 +51,18 @@
 				$this->data[] = null;
 			}
 		}
+		public function qryAssignedR() {
+			$sql = "SELECT * FROM `employement` ORDER BY `id` DESC";
+			$qry = $this->con->query($sql);
+			if($qry->num_rows > 0) {
+				while($row = $qry->fetch_object()) {
+					$this->data[] = $row;
+				}
+			} else {
+				$this->data[] = null;
+			}
+		}
+
 
 
 		public function qryFireP($sql=null) {
@@ -73,13 +85,30 @@
 			$this->con->close();
 			return $this->data;
 		}
-		public function qryAssignR($sql=null) {
-			if($sql) $this->con->query($sql);
-			//$this->qryPopR();
+		public function qryAssignR($sql=null,$sql1=null) {
+			if($sql) $this->con->query($sql);$this->con->query($sql1);
+			$this->qryAssignedR();
+			$this->qryAssONE();
 			$this->con->close();
 			return $this->data;
 		}
-
+		public function qryFireFR($sql=null) {
+			if($sql) $this->con->query($sql);
+			$this->qryPopFR();
+			$this->con->close();
+			return $this->data;
+		}
+		public function qryPopFR() {
+			$sql = "SELECT * FROM `resource` WHERE `assigned`= 0";
+			$qry = $this->con->query($sql);
+			if($qry->num_rows > 0) {
+				while($row = $qry->fetch_object()) {
+					$this->data[] = $row;
+				}
+			} else {
+				$this->data[] = null;
+			}
+		}
 
 	}
 
