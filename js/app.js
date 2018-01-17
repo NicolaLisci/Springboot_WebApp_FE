@@ -21,6 +21,10 @@ angular.module('app', ['ngRoute', 'controller'])
 		templateUrl: 'templates/progetti_test.html',
 		controller: 'BlogCtrl'
 	})
+	.when('/viz', {
+		templateUrl: 'templates/viz.html',
+		controller: 'VizCtrl'
+	})
 	.otherwise({
 		templateUrl: 'templates/404.html'
 	})
