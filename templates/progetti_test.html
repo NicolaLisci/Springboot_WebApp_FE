@@ -111,7 +111,8 @@
 															<tr ng-repeat="el1 in resource | filter: query track by $index">
 																<td>{{ el1.surname }}</td><td>{{ el1.name }}</td><td>{{ el1.type}}</td>
 																<td>
-																	<button name="Aggiungi" type="button" ng-click="assignR(el.id)" class="btn btn-success" data-toggle="button" aria-pressed="false" autocomplete="off">
+
+																	<button name="Aggiungi" type="button" ng-click="assignR()" class="btn btn-success" data-toggle="button" aria-pressed="false" autocomplete="off">
 																		<span class="glyphicon glyphicon-ok"></span></button>
 																</td>
 																</div>

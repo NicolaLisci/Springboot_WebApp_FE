@@ -75,7 +75,7 @@
 		}
 		public function qryAssignR($sql=null) {
 			if($sql) $this->con->query($sql);
-			$this->qryPopR();
+			//$this->qryPopR();
 			$this->con->close();
 			return $this->data;
 		}
