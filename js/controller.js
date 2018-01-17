@@ -89,7 +89,7 @@ angular.module('controller', [])
                 }, 3000);
                 $scope.blogs = data;
                 $scope.frm = {};
-                $('#blogForm1').slideToggle();
+                //$('#blogForm1').slideToggle();
             })
             .error(function(err) {
                 $scope.notification.error = true;
