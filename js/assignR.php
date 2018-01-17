@@ -5,7 +5,7 @@
 
 	$db = new DB();
 
-	$sql = "UPDATE `project` SET `assigned` = '$data->assigned' WHERE `id` = '$data->id'";
+	$sql ="INSERT INTO `employement`(`id_r`, `id_p`) VALUES ('$data->id_r',''$data->id_p')";
 
 	$data = $db->qryAssignR($sql);
 

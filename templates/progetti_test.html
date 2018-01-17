@@ -70,7 +70,7 @@
 	<input type="search" ng-model="query.id" placeholder="Cerca Progetto" class="form-control">
 	<br>
 
-<p>inizio</p>
+
 	<table class="table table-striped">
 	 	<tr>
 	 		<th>Nome</th><th>Inizio</th><th>Scadenza</th> <th>Stato</th> <th style="text-align:center;" >Senior</th> <th style="text-align:center;">Junior</th><th style="text-align:center;">Assegna Risorse</th><th style="width: 100px;">Rimuovi</th>
@@ -100,9 +100,9 @@
 												<div class="modal-header">
 														<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 														<h4 class="modal-title" id="edit-modalLabel">Assegna Risorsa ( {{ editBlogData1.name_project }} )</h4>
-												</div>
+												</div> -->
 												<div class="modal-body">
-													<form class="form-horizontal" id="blogForm"> -->
+													<form class="form-horizontal" id="blogForm1">
 
 														<table class="table table-striped">
 															<tr>
@@ -111,27 +111,28 @@
 															<tr ng-repeat="el1 in resource | filter: query track by $index">
 																<td>{{ el1.surname }}</td><td>{{ el1.name }}</td><td>{{ el1.type}}</td>
 																<td>
-																	<button type="button" ng-click="assignR(el)" class="btn btn-success" data-toggle="button" aria-pressed="false" autocomplete="off">
+																	<button name="Aggiungi" type="button" ng-click="assignR(el.id)" class="btn btn-success" data-toggle="button" aria-pressed="false" autocomplete="off">
 																		<span class="glyphicon glyphicon-ok"></span></button>
 																</td>
+																</div>
 														</form>
-													</div>
+
 															<!--	<div class="modal-footer">
 																		<button type="button" class="btn btn-default" data-dismiss="modal">Chiudi</button>
 																		<button type="button" class="btn btn-primary" ng-click="updateDataP(editBlogData)">Salva</button>
-																	</div> -->
+																	</div>
 																</div>
 															</div>
 														</div>
 														</div>
-								</div>
+								</div>  -->
 
 							</tr>
 							</table>
 						</tbody>
 					</td>
 
-<p>fine</p>
+
 	<!-- Button trigger modal -->
 	<div class="modal fade" id="edit-modal" tabindex="-1" role="dialog" aria-labelledby="edit-modalLabel">
 	    <div class="modal-dialog modal-lg" role="document">

@@ -78,32 +78,27 @@ angular.module('controller', [])
 
     //_____________________________________________________________________________
 
-    $("#buttonid").on("click", function() {
-        $(this).prop("disabled", true);
-    });
 
     $scope.assignR = function($params) {
-        $('#assigned').modal('show');
-        $http.post('./js/assignR.php', {'id': $params.id,  'name_project': $params.name_project,'assigned':$params.assigned})
+        $http.post('./js/assignR.php', { 'id_r': $params.id_r, 'id_p': $params.id_p})
             .success(function(data) {
                 $scope.notification.success = true;
-                $scope.notification.message = "Risorsa assegnata al progetto!";
+                $scope.notification.message = "Assegnazione effettuata!";
                 $timeout(function() {
                     $scope.notification = {};
                 }, 3000);
                 $scope.blogs = data;
-                $scope.frm = $scope.editBlogData = {};
+                $scope.frm = {};
+                $('#blogForm1').slideToggle();
             })
             .error(function(err) {
                 $scope.notification.error = true;
-                $scope.notification.message = "Impossibile assegnare la risorsa!";
+                $scope.notification.message = "Impossibile assegnare risorsa!";
                 $timeout(function() {
                     $scope.notification = {};
                 }, 3000);
-                $log.error(err);
             })
-    }
-
+}
     $scope.removeDataP = function($params) {
         var cnfrm = confirm("Sicuro di voler cancellare?");
         if (cnfrm) {

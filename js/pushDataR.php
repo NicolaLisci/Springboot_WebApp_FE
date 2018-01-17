@@ -4,9 +4,9 @@
 	include('config.php');
 
 	$db = new DB();
-
-	$sql = "INSERT INTO `resource` (`surname`, `name`, `type`, `hired`)
-	VALUES('$data->surname','$data->name','$data->type','$data->hired')";
+	$ass = 0;
+	$sql = "INSERT INTO `resource` (`surname`, `name`, `type`, `hired`, `assigned`)
+	VALUES('$data->surname','$data->name','$data->type','$data->hired','$ass->assigned')";
 	$data = $db->qryFireR($sql);
 
 	echo json_encode($data);
