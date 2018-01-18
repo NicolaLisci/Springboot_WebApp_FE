@@ -8,7 +8,7 @@
 	$sql ="INSERT INTO `employement`(`id_r`, `id_p`) VALUES ('$data->id_r','$data->id_p')";
 
 	$sql1= "UPDATE `resource` SET `assigned`= 1  WHERE `id`= '$data->id_r'";
-	$data = $db->qryAssignR($sql1,$sql);
+	$data = $db->qryAssignR($sql,$sql1);
 	//$data = $db->qryAssignR($sql);
 
 	/*public function qryAssONE() {
