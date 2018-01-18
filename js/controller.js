@@ -367,3 +367,44 @@ angular.module('controller', [])
         }
 
     }])
+//______________VIZ__________________________________________________________________________
+.controller('VizCtrl', ['$scope', '$http', '$log', '$timeout', function($scope, $http, $log, $timeout) {
+        $scope.frm = {};
+        $scope.notification = {};
+
+        $scope.frmToggle = function() {
+            $('#blogForm').slideToggle();
+        }
+
+        $scope.pushDataP = function($params) {
+            $http.post('./js/pushDataP.php', { 'name_project': $params.name_project, 'start_project': $params.start_project,
+          'deadline':$params.deadline, 'status':$params.status,'nsenior':$params.nsenior,'njunior':$params.njunior })
+                .success(function(data) {
+                    $scope.notification.success = true;
+                    $scope.notification.message = "Progetto aggiunto!";
+                    $timeout(function() {
+                        $scope.notification = {};
+                    }, 3000);
+                    $scope.blogs = data;
+                    $scope.frm = {};
+                    $('#blogForm').slideToggle();
+                })
+                .error(function(err) {
+                    $scope.notification.error = true;
+                    $scope.notification.message = "Impossibile aggiungere progetto!";
+                    $timeout(function() {
+                        $scope.notification = {};
+                    }, 3000);
+                })
+        }
+
+
+
+
+
+
+
+
+
+
+          }])
